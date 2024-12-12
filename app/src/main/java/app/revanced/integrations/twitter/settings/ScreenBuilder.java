@@ -14,7 +14,7 @@ import com.twitter.ui.widget.LegacyTwitterPreferenceCategory;
 import android.view.View;
 import app.revanced.integrations.twitter.settings.widgets.*;
 import androidx.annotation.Nullable;
-
+import app.revanced.integrations.twitter.Pref;
 public class ScreenBuilder {
     private Context context;
     private PreferenceScreen screen;
@@ -82,15 +82,25 @@ public class ScreenBuilder {
                 );
             }
 
-            if (SettingsStatus.customAppIcon || SettingsStatus.navBarCustomisation) {
+            if (SettingsStatus.customAppIcon) {
                 addPreference(category,
                         helper.buttonPreference(
-                                strRes("piko_pref_icon_n_navbar_btn"),
+                                strRes("app_icon"),
                                 "",
                                 Settings.PREMIUM_ICONS
                         )
                 );
             }
+
+        if (SettingsStatus.navBarCustomisation) {
+            addPreference(category,
+                    helper.buttonPreference(
+                            strRes("custom_navigation"),
+                            "",
+                            Settings.PREMIUM_NAVBAR
+                    )
+            );
+        }
         
     }
 
@@ -121,6 +131,15 @@ public class ScreenBuilder {
                         )
                 );
             }
+        if (SettingsStatus.nativeDownloader) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_title_native_downloader"),
+                            "",
+                            Settings.VID_NATIVE_DOWNLOADER
+                    )
+            );
+        }
         
     }
 
@@ -373,7 +392,40 @@ public class ScreenBuilder {
             );
         }
 
+        if (SettingsStatus.hideSocialProof) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_pref_hide_social_proof"),
+                            strRes("piko_pref_hide_social_proof_desc"),
+                            Settings.MISC_HIDE_SOCIAL_PROOF
+                    )
+            );
+        }
 
+        if (SettingsStatus.nativeTranslator) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_native_translator"),
+                            "",
+                            Settings.NATIVE_TRANSLATOR
+                    )
+            );
+            addPreference(category,
+                    helper.listPreference(
+                            strRes("piko_native_translator_provider"),
+                            "",
+                            Settings.NATIVE_TRANSLATOR_PROVIDERS
+                    )
+            );
+            addPreference(category,
+                    helper.listPreference(
+                            strRes("piko_native_translator_to_lang"),
+                            Pref.translatorLanguage(),
+                            Settings.NATIVE_TRANSLATOR_LANG
+                    )
+            );
+
+        }
 
     }
 
@@ -453,6 +505,15 @@ public class ScreenBuilder {
                     )
             );
         }
+        if (SettingsStatus.exploreTabCustomisation) {
+            addPreference(category,
+                    helper.multiSelectListPref(
+                            strRes("piko_pref_customisation_exploretabs"),
+                            strRes("piko_pref_app_restart_rec"),
+                            Settings.CUSTOM_EXPLORE_TABS
+                    )
+            );
+        }
         if (SettingsStatus.sideBarCustomisation) {
            addPreference(category,
                     helper.multiSelectListPref(
@@ -493,6 +554,14 @@ public class ScreenBuilder {
             );
         }
 
+        if(SettingsStatus.customPostFontSize) {
+            addPreference(category,
+                    helper.editTextNumPreference(
+                            strRes("piko_pref_customisation_post_font_size"),
+                            String.valueOf(Pref.setPostFontSize()),
+                            Settings.CUSTOM_POST_FONT_SIZE
+                    ));
+        }
 
         addPreference(category,
                 helper.switchPreference(
@@ -647,6 +716,15 @@ public class ScreenBuilder {
                             strRes("piko_pref_hide_nudge_button"),
                             strRes("piko_pref_hide_nudge_button_desc"),
                             Settings.TIMELINE_HIDE_NUDGE_BUTTON
+                    )
+            );
+        }
+        if (SettingsStatus.showSensitiveMedia) {
+            addPreference(category,
+                    helper.switchPreference(
+                            strRes("piko_pref_show_sensitive_media"),
+                            "",
+                            Settings.TIMELINE_SHOW_SENSITIVE_MEDIA
                     )
             );
         }

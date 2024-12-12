@@ -1,3 +1,212 @@
+## [1.35.0](https://github.com/crimera/revanced-integrations/compare/v1.34.1...v1.35.0) (2024-12-04)
+
+
+### Features
+
+* **Twitter:** Added `Customize explore tabs` patch ([7f53b59](https://github.com/crimera/revanced-integrations/commit/7f53b59512b4f60549325fc9e93754bb8d927a1e))
+
+## [1.35.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.34.1...v1.35.0-dev.1) (2024-11-28)
+
+
+### Features
+
+* **Twitter:** Added `Customize explore tabs` patch ([7f53b59](https://github.com/crimera/revanced-integrations/commit/7f53b59512b4f60549325fc9e93754bb8d927a1e))
+
+## [1.34.1](https://github.com/crimera/revanced-integrations/compare/v1.34.0...v1.34.1) (2024-11-27)
+
+
+### Bug Fixes
+
+* **Twitter:** fix `hide Google ads` ([d975a79](https://github.com/crimera/revanced-integrations/commit/d975a79d1024141b18d5d749a1603edfc88b5921))
+* **Twitter:** Fix dialog  positive button string ([fcbecce](https://github.com/crimera/revanced-integrations/commit/fcbecce8646a7b0aef3d239a2d99574a4ec62bc7))
+
+
+### Refactors
+
+* **Twitter:** Added toggle for `Show sensitive media` patch ([a7a991c](https://github.com/crimera/revanced-integrations/commit/a7a991c46539112a33a842d6fcec776e83f7aab5))
+* **Twitter:** refactor custom app icon and nav icons ([b5dc850](https://github.com/crimera/revanced-integrations/commit/b5dc850f3a3d3d2cdd98a1ae3a5b7702edad475f))
+
+## [1.34.1-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.34.1-dev.1...v1.34.1-dev.2) (2024-11-25)
+
+
+### Bug Fixes
+
+* **Twitter:** fix `hide Google ads` ([d975a79](https://github.com/crimera/revanced-integrations/commit/d975a79d1024141b18d5d749a1603edfc88b5921))
+
+
+### Refactors
+
+* **Twitter:** Added toggle for `Show sensitive media` patch ([a7a991c](https://github.com/crimera/revanced-integrations/commit/a7a991c46539112a33a842d6fcec776e83f7aab5))
+
+## [1.34.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.34.0...v1.34.1-dev.1) (2024-11-24)
+
+
+### Bug Fixes
+
+* **Twitter:** Fix dialog  positive button string ([fcbecce](https://github.com/crimera/revanced-integrations/commit/fcbecce8646a7b0aef3d239a2d99574a4ec62bc7))
+
+
+### Refactors
+
+* **Twitter:** refactor custom app icon and nav icons ([b5dc850](https://github.com/crimera/revanced-integrations/commit/b5dc850f3a3d3d2cdd98a1ae3a5b7702edad475f))
+
+## [1.34.0](https://github.com/crimera/revanced-integrations/compare/v1.33.0...v1.34.0) (2024-11-14)
+
+
+### Features
+
+* **Twitter:** Added `Customise post font size` patch ([e8706de](https://github.com/crimera/revanced-integrations/commit/e8706deb31ff479252727eea03c0bf738a006243))
+
+
+### Refactors
+
+* **Twitter:** refactor values of list preference ([4d7cfcd](https://github.com/crimera/revanced-integrations/commit/4d7cfcd1fe3d5d951e6c36cd40e1729efcc46bc6))
+
+## [1.34.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.33.1-dev.1...v1.34.0-dev.1) (2024-11-12)
+
+
+### Features
+
+* **Twitter:** Added `Customise post font size` patch ([e8706de](https://github.com/crimera/revanced-integrations/commit/e8706deb31ff479252727eea03c0bf738a006243))
+
+## [1.33.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.33.0...v1.33.1-dev.1) (2024-11-09)
+
+
+### Refactors
+
+* **Twitter:** refactor values of list preference ([4d7cfcd](https://github.com/crimera/revanced-integrations/commit/4d7cfcd1fe3d5d951e6c36cd40e1729efcc46bc6))
+
+## [1.33.0](https://github.com/crimera/revanced-integrations/compare/v1.32.0...v1.33.0) (2024-11-06)
+
+
+### Features
+
+* **Custom downloader:** temp files not getting renamed on android 13+ ([9638909](https://github.com/crimera/revanced-integrations/commit/96389095e9f643c368dd92dd733ff6812235a83b))
+* **Twitter:** Added `Custom translator` patch ([d55b7a6](https://github.com/crimera/revanced-integrations/commit/d55b7a66a9f0d366303268b45a085cbf6f9ea92c))
+
+
+### Refactors
+
+* **Twitter:** refactor `Custom downloader` patch ([4142894](https://github.com/crimera/revanced-integrations/commit/4142894277a11d236bc4d28223f7a081103898ee))
+
+## [1.33.0-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.33.0-dev.1...v1.33.0-dev.2) (2024-11-03)
+
+
+### Features
+
+* **Custom downloader:** temp files not getting renamed on android 13+ ([9638909](https://github.com/crimera/revanced-integrations/commit/96389095e9f643c368dd92dd733ff6812235a83b))
+
+## [1.33.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.32.0...v1.33.0-dev.1) (2024-11-02)
+
+
+### Features
+
+* **Twitter:** Added `Custom translator` patch ([d55b7a6](https://github.com/crimera/revanced-integrations/commit/d55b7a66a9f0d366303268b45a085cbf6f9ea92c))
+
+
+### Refactors
+
+* **Twitter:** refactor `Custom downloader` patch ([4142894](https://github.com/crimera/revanced-integrations/commit/4142894277a11d236bc4d28223f7a081103898ee))
+
+## [1.32.0](https://github.com/crimera/revanced-integrations/compare/v1.31.2...v1.32.0) (2024-10-29)
+
+
+### Bug Fixes
+
+* Remove new MainEvent ads from Explore page ([6bb196b](https://github.com/crimera/revanced-integrations/commit/6bb196bb01d7f09f6442d635e556fc985b1b9751))
+
+
+### Features
+
+* **Customize side bar items:** Allow for hiding of the "Jobs" item ([047946a](https://github.com/crimera/revanced-integrations/commit/047946aa9b5f7c494d56ad25d6fa9bfb7dbef524))
+
+
+### Updates
+
+* **Custom Downloader:** Only download files that doesn't already exist ([63c1664](https://github.com/crimera/revanced-integrations/commit/63c16647a7a7822465353fa58629ffcd2e4b8ca7))
+
+## [1.32.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.31.3-dev.2...v1.32.0-dev.1) (2024-10-26)
+
+
+### Features
+
+* **Customize side bar items:** Allow for hiding of the "Jobs" item ([047946a](https://github.com/crimera/revanced-integrations/commit/047946aa9b5f7c494d56ad25d6fa9bfb7dbef524))
+
+## [1.31.3-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.31.3-dev.1...v1.31.3-dev.2) (2024-10-26)
+
+
+### Bug Fixes
+
+* Remove new MainEvent ads from Explore page ([6bb196b](https://github.com/crimera/revanced-integrations/commit/6bb196bb01d7f09f6442d635e556fc985b1b9751))
+
+## [1.31.3-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.31.2...v1.31.3-dev.1) (2024-10-26)
+
+
+### Updates
+
+* **Custom Downloader:** Only download files that doesn't already exist ([63c1664](https://github.com/crimera/revanced-integrations/commit/63c16647a7a7822465353fa58629ffcd2e4b8ca7))
+
+## [1.31.2](https://github.com/crimera/revanced-integrations/compare/v1.31.1...v1.31.2) (2024-10-24)
+
+
+### Bug Fixes
+
+* **Twitter:** Add support for version 10.64.0-beta.1 ([015f492](https://github.com/crimera/revanced-integrations/commit/015f492bfaf6fece4f3cb5e46707e283405e17d6))
+
+
+### Refactors
+
+* **Custom Downloader:** Improve getting of tweet method declarations ([a6ed0b2](https://github.com/crimera/revanced-integrations/commit/a6ed0b2d3db2757d83d0c0606eccf14c6ca2a02e))
+
+## [1.31.2-dev.2](https://github.com/crimera/revanced-integrations/compare/v1.31.2-dev.1...v1.31.2-dev.2) (2024-10-20)
+
+
+### Refactors
+
+* **Custom Downloader:** Improve getting of tweet method declarations ([a6ed0b2](https://github.com/crimera/revanced-integrations/commit/a6ed0b2d3db2757d83d0c0606eccf14c6ca2a02e))
+
+## [1.31.2-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.31.1...v1.31.2-dev.1) (2024-10-20)
+
+
+### Bug Fixes
+
+* **Twitter:** Add support for version 10.64.0-beta.1 ([015f492](https://github.com/crimera/revanced-integrations/commit/015f492bfaf6fece4f3cb5e46707e283405e17d6))
+
+## [1.31.1](https://github.com/crimera/revanced-integrations/compare/v1.31.0...v1.31.1) (2024-10-15)
+
+
+### Bug Fixes
+
+* **Remove Google Ad:** Include ads in the comments ([774ed00](https://github.com/crimera/revanced-integrations/commit/774ed00e010d042c40cd10e6354a555b2ffbdd30))
+
+## [1.31.1-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.31.0...v1.31.1-dev.1) (2024-10-15)
+
+
+### Bug Fixes
+
+* **Remove Google Ad:** Include ads in the comments ([774ed00](https://github.com/crimera/revanced-integrations/commit/774ed00e010d042c40cd10e6354a555b2ffbdd30))
+
+## [1.31.0](https://github.com/crimera/revanced-integrations/compare/v1.30.0...v1.31.0) (2024-10-09)
+
+
+### Features
+
+* **Twitter:** Add flags via deep links ([2c8bd5e](https://github.com/crimera/revanced-integrations/commit/2c8bd5e64bf5d98070794f21dfe87a3a11721ac6))
+
+## [1.30.0](https://github.com/crimera/revanced-integrations/compare/v1.29.0...v1.30.0) (2024-10-03)
+
+
+### Features
+
+* **Twitter:** Added `Hide followed by context` patch ([da6fc21](https://github.com/crimera/revanced-integrations/commit/da6fc21f05fe1180676703d659f9e2dd36847c34))
+
+## [1.30.0-dev.1](https://github.com/crimera/revanced-integrations/compare/v1.29.0...v1.30.0-dev.1) (2024-09-27)
+
+
+### Features
+
+* **Twitter:** Added `Hide followed by context` patch ([da6fc21](https://github.com/crimera/revanced-integrations/commit/da6fc21f05fe1180676703d659f9e2dd36847c34))
+
 ## [1.29.0](https://github.com/crimera/revanced-integrations/compare/v1.28.2...v1.29.0) (2024-09-25)
 
 

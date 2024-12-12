@@ -46,13 +46,16 @@ public class MultiSelectListPref extends MultiSelectListPreference {
             entriesValues = new CharSequence[]{"tweets", "tweets_replies", "affiliated", "subs", "highlights", "articles", "media", "likes"};
         }else if (key == Settings.CUSTOM_SIDEBAR_TABS.key) {
             entries = Utils.getResourceStringArray("piko_array_sidebar");
-            entriesValues = new CharSequence[]{"Profile","Premium", "Grok","DMs","Communities","Bookmarks","Lists","TopArticles","BirdwatchNotes","Spaces","PendingFollowers","Monetization","ProfessionalToolsGroup","MediaTransparency","Imprint","SettingsAndSupportGroup"};
+            entriesValues = new CharSequence[]{"Profile","Premium", "Grok","DMs","Communities","Bookmarks","Lists","TopArticles","BirdwatchNotes","Spaces","PendingFollowers","Monetization","ProfessionalToolsGroup","MediaTransparency","Imprint","SettingsAndSupportGroup","Jobs"};
         }else if (key == Settings.CUSTOM_NAVBAR_TABS.key) {
             entries = Utils.getResourceStringArray("piko_array_navbar");
             entriesValues = new CharSequence[]{"HOME","GUIDE", "SPACES","COMMUNITIES","NOTIFICATIONS","CONNECT","COMMUNITY_NOTES","BOOKMARKS","DMS","GROK","MEDIA_TAB"};
         }else if (key == Settings.CUSTOM_INLINE_TABS.key) {
             entries = Utils.getResourceStringArray("piko_array_inlinetabs");
             entriesValues = new CharSequence[]{"Reply","Retweet", "Favorite","ViewCount","AddRemoveBookmarks", "TwitterShare"};
+        }else if (key == Settings.CUSTOM_EXPLORE_TABS.key) {
+            entries = Utils.getResourceStringArray("piko_array_exploretabs");
+            entriesValues = Utils.getResourceStringArray("piko_array_exploretabs_val");
         }
         setEntries(entries);
         setEntryValues(entriesValues);

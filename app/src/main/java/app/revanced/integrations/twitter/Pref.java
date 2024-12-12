@@ -8,11 +8,39 @@ import java.util.*;
 @SuppressWarnings("unused")
 public class Pref {
     public static boolean ROUND_OFF_NUMBERS,ENABLE_FORCE_HD;
+    public static float POST_FONT_SIZE;
     static{
         ROUND_OFF_NUMBERS = isRoundOffNumbersEnabled();
         ENABLE_FORCE_HD = enableForceHD();
+        POST_FONT_SIZE = setPostFontSize();
+    }
+    public static float setPostFontSize() {
+        Float fontSize = 0.0f;
+        try{
+            fontSize = Float.valueOf(Utils.getStringPref(Settings.CUSTOM_POST_FONT_SIZE));
+        }catch (Exception ex){
+            fontSize = app.revanced.integrations.shared.Utils.getResourceDimension("font_size_normal");
+        }
+        return fontSize;
+    }
+    public static boolean showSensitiveMedia() {
+        return Utils.getBooleanPerf(Settings.TIMELINE_SHOW_SENSITIVE_MEDIA);
     }
 
+    public static boolean enableNativeDownloader() {
+        return Utils.getBooleanPerf(Settings.VID_NATIVE_DOWNLOADER);
+    }
+
+    public static int natveTranslatorProvider(){
+        return Integer.parseInt(Utils.getStringPref(Settings.NATIVE_TRANSLATOR_PROVIDERS));
+    }
+    public static boolean enableNativeTranslator() {
+        return Utils.getBooleanPerf(Settings.NATIVE_TRANSLATOR);
+    }
+
+    public static String translatorLanguage() {
+        return Utils.getStringPref(Settings.NATIVE_TRANSLATOR_LANG);
+    }
     public static boolean redirect(TabLayout$g g) {return Utils.redirect(g);}
 
     public static boolean isRoundOffNumbersEnabled() {
@@ -263,6 +291,9 @@ public class Pref {
     public static boolean enableDebugMenu() {
         return Utils.getBooleanPerf(Settings.MISC_DEBUG_MENU);
     }
+    public static boolean hideSocialProof() {
+        return Utils.getBooleanPerf(Settings.MISC_HIDE_SOCIAL_PROOF);
+    }
 
     private static ArrayList getList(String key){
         ArrayList<String> arrayList = new ArrayList<String>();
@@ -280,6 +311,9 @@ public class Pref {
 
     public static ArrayList customSidebar() {
         return getList(Settings.CUSTOM_SIDEBAR_TABS.key);
+    }
+    public static ArrayList customExploreTabs() {
+        return getList(Settings.CUSTOM_EXPLORE_TABS.key);
     }
 
     public static ArrayList customNavbar() {

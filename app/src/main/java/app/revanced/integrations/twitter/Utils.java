@@ -8,9 +8,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.LinearLayout;
+import androidx.annotation.RequiresApi;
 import app.revanced.integrations.shared.StringRef;
 import app.revanced.integrations.shared.settings.BooleanSetting;
 import app.revanced.integrations.shared.settings.StringSetting;
@@ -31,6 +33,12 @@ public class Utils {
     @SuppressLint("StaticFieldLeak")
     private static final Context ctx = app.revanced.integrations.shared.Utils.getContext();
     private static final SharedPrefCategory sp = new SharedPrefCategory(Settings.SHARED_PREF_NAME);
+
+    public static void openUrl(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse(url));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        ctx.startActivity(intent);
+    }
 
     private static void startActivity(Class cls) {
         Intent intent = new Intent(ctx, cls);
@@ -128,7 +136,7 @@ public class Utils {
         ln.setOrientation(LinearLayout.VERTICAL);
 
         dialog.setTitle(strRes("settings_restart"));
-        dialog.setPositiveButton(strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
+        dialog.setPositiveButton(strRes("ok"), (dialogInterface, i) -> {
             app.revanced.integrations.shared.Utils.restartApp(context);
         });
         dialog.setNegativeButton(strRes("cancel"), null);
@@ -146,7 +154,7 @@ public class Utils {
         dialog.setTitle(strRes("delete"));
 
         dialog.setMessage(strRes("delete") + " " + strRes(content) + " ?");
-        dialog.setPositiveButton(strRes("edit_birthdate_confirm"), (dialogInterface, i) -> {
+        dialog.setPositiveButton(strRes("ok"), (dialogInterface, i) -> {
             boolean success = false;
             if (flag) {
                 sp.removeKey(Settings.MISC_FEATURE_FLAGS.key);
@@ -229,6 +237,25 @@ public class Utils {
         return bigger;
     }
 
+    private static String getPath(String publicFolder, String subFolder, String filename) {
+        return publicFolder + "/" + subFolder + "/" + filename;
+    }
+
+
+    private static void postDownload(String filename, File tempFile, File file, Intent intent, long downloadId, BroadcastReceiver broadcastReceiver) {
+        long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
+        if (id == downloadId) {
+            boolean result = tempFile.renameTo(file);
+            if (!result) {
+                toast("Failed to rename temp file");
+            }
+
+            toast(strRes("exo_download_completed") + ": " + filename);
+            ctx.unregisterReceiver(broadcastReceiver);
+        }
+    }
+
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
     public static void downloadFile(String url, String mediaName, String ext) {
         String filename = mediaName + "." + ext;
         boolean isPhoto = ext.equals("jpg");
@@ -238,42 +265,50 @@ public class Utils {
         request.setTitle(filename);
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
-        String[] savePath = {"Pictures", "Twitter"};
+        String publicFolder = "Pictures";
+        String subFolder = "Twitter";
+
         if (!isPhoto) {
-            savePath = new String[]{Pref.getPublicFolder(), Utils.getStringPref(Settings.VID_SUBFOLDER)};
+            publicFolder = Pref.getPublicFolder();
+            subFolder = Utils.getStringPref(Settings.VID_SUBFOLDER);
         }
-        request.setDestinationInExternalPublicDir(savePath[0], savePath[1] + "/" + "temp_" + filename);
+        request.setDestinationInExternalPublicDir(publicFolder, subFolder + "/" + "temp_" + filename);
+
+        File file = new File(Environment.getExternalStorageDirectory(), getPath(publicFolder, subFolder, filename));
+        if (file.exists()) {
+            toast(strRes("exo_download_completed") + ": " + filename);
+            return;
+        }
 
         DownloadManager manager = (DownloadManager) ctx.getSystemService(Context.DOWNLOAD_SERVICE);
         long downloadId = manager.enqueue(request);
 
-        final String[] finalSavePath = savePath;
-        ctx.registerReceiver(new BroadcastReceiver() {
+        File tempFile = new File(
+                Environment.getExternalStorageDirectory(),
+                getPath(publicFolder, subFolder, "temp_" + filename)
+        );
 
-            private String getPath(String filename) {
-               return finalSavePath[0] + "/" + finalSavePath[1] + "/" + filename;
-            }
-
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
-                if (id == downloadId) {
-                    File tempFile = new File(Environment.getExternalStorageDirectory(), getPath("temp_"+filename));
-                    File file = new File(Environment.getExternalStorageDirectory(), getPath(filename));
-                    tempFile.renameTo(file);
-
-                    toast(strRes("exo_download_completed") + ": " + filename);
-                    ctx.unregisterReceiver(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ctx.registerReceiver(new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    postDownload(filename, tempFile, file, intent, downloadId, this);
                 }
-            }
-        }, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+            }, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE), Context.RECEIVER_EXPORTED);
+        } else {
+            ctx.registerReceiver(new BroadcastReceiver() {
+                @Override
+                public void onReceive(Context context, Intent intent) {
+                    postDownload(filename, tempFile, file, intent, downloadId, this);
+                }
+            }, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+        }
     }
 
     public static void toast(String msg) {
         app.revanced.integrations.shared.Utils.showToastShort(msg);
     }
 
-    //dont delete it
     public static void logger(Object j) {
         Log.d("piko", j.toString());
     }
